@@ -5,6 +5,10 @@
 package ec.edu.ups.practica02.quitokaren.peniasofia.dao;
 
 import ec.edu.ups.practica02.quitokaren.peniasofia.idao.IPersonaDAO;
+import ec.edu.ups.practica02.quitokaren.peniasofia.modelo.Cancion;
+import ec.edu.ups.practica02.quitokaren.peniasofia.modelo.Cantante;
+import ec.edu.ups.practica02.quitokaren.peniasofia.modelo.Compositor;
+import ec.edu.ups.practica02.quitokaren.peniasofia.modelo.Disco;
 import ec.edu.ups.practica02.quitokaren.peniasofia.modelo.Persona;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -61,6 +65,37 @@ public class PersonaDAO implements IPersonaDAO{
     @Override
     public List<Persona> findALL() {
         return listaPersona;
+    }
+
+    @Override
+    public Persona buscarPorNombreDeDisco(String valor) {
+        for (Persona persona : listaPersona) {
+            if (persona instanceof Cantante){
+                Cantante cantante = (Cantante)persona;
+                for (Disco disco : cantante.listaDisco()) {
+                    if(disco.getNombre().equals(valor)){
+                        return cantante;
+                    }
+                }
+            }
+        }
+        return null;
+    }
+    
+
+    @Override
+    public Persona buscarPorTituloDeCancion(String valor) {
+        for (Persona persona : listaPersona) {
+            if (persona instanceof Compositor){
+                Compositor compositor = (Compositor)persona;
+                for (Cancion cancion : compositor.listarCanciones()) {
+                    if(cancion.getTitulo().equals(valor)){
+                    return compositor;
+                }
+                }
+            }
+        }
+        return null;
     }
     
     

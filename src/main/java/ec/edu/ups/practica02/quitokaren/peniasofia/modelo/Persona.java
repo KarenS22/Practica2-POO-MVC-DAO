@@ -4,7 +4,6 @@
  */
 package ec.edu.ups.practica02.quitokaren.peniasofia.modelo;
 
-import java.util.Objects;
 
 /**
  *
@@ -20,6 +19,13 @@ public abstract class Persona {
     private double salario;
 
     //constructor
+    
+    public Persona(int codigo, String nombre, String apellido) {
+        this.codigo = codigo;
+        this.nombre = nombre;
+        this.apellido = apellido;
+    }
+
     public Persona(int codigo, String nombre, String apellido, int edad, String nacionalidad, double salario) {
         this.codigo = codigo;
         this.nombre = nombre;
@@ -79,18 +85,15 @@ public abstract class Persona {
     }
 
     //sobreescritura hashCode
-    @Override
+    @Override    
     public int hashCode() {
-        int hash = 7;
-        hash = 73 * hash + this.codigo;
-        hash = 73 * hash + Objects.hashCode(this.nombre);
-        hash = 73 * hash + Objects.hashCode(this.apellido);
-        hash = 73 * hash + this.edad;
-        hash = 73 * hash + Objects.hashCode(this.nacionalidad);
-        hash = 73 * hash + (int) (Double.doubleToLongBits(this.salario) ^ (Double.doubleToLongBits(this.salario) >>> 32));
+        int hash = 3;
+        hash = 53 * hash + this.codigo;
         return hash;
     }
+
     //sobreescritura equals
+
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -103,23 +106,9 @@ public abstract class Persona {
             return false;
         }
         final Persona other = (Persona) obj;
-        if (this.codigo != other.codigo) {
-            return false;
-        }
-        if (this.edad != other.edad) {
-            return false;
-        }
-        if (Double.doubleToLongBits(this.salario) != Double.doubleToLongBits(other.salario)) {
-            return false;
-        }
-        if (!Objects.equals(this.nombre, other.nombre)) {
-            return false;
-        }
-        if (!Objects.equals(this.apellido, other.apellido)) {
-            return false;
-        }
-        return Objects.equals(this.nacionalidad, other.nacionalidad);
+        return this.codigo == other.codigo;
     }
+   
 
     //sobreescritura toString
     @Override

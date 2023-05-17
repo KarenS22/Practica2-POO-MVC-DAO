@@ -4,7 +4,6 @@
  */
 package ec.edu.ups.practica02.quitokaren.peniasofia.modelo;
 
-import java.util.Objects;
 
 /**
  *
@@ -65,9 +64,6 @@ public class Cancion {
     public int hashCode() {
         int hash = 7;
         hash = 37 * hash + this.codigo;
-        hash = 37 * hash + Objects.hashCode(this.titulo);
-        hash = 37 * hash + Objects.hashCode(this.letra);
-        hash = 37 * hash + (int) (Double.doubleToLongBits(this.tiempoEnMinutos) ^ (Double.doubleToLongBits(this.tiempoEnMinutos) >>> 32));
         return hash;
     }
 //sobreescritura metodo equals
@@ -83,17 +79,10 @@ public class Cancion {
             return false;
         }
         final Cancion other = (Cancion) obj;
-        if (this.codigo != other.codigo) {
-            return false;
-        }
-        if (Double.doubleToLongBits(this.tiempoEnMinutos) != Double.doubleToLongBits(other.tiempoEnMinutos)) {
-            return false;
-        }
-        if (!Objects.equals(this.titulo, other.titulo)) {
-            return false;
-        }
-        return Objects.equals(this.letra, other.letra);
+        return this.codigo == other.codigo;
     }
+
+    
 //sobreescritura toString
     @Override
     public String toString() {

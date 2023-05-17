@@ -24,6 +24,12 @@ public class Cantante extends Persona{
     
    // constructor 
 
+    public Cantante(int codigo, String nombre, String apellido) {
+        super(codigo, nombre, apellido);
+    }
+    
+    
+
     public Cantante(String nombreArtistico, String generoMusical, int numeroDeSencillos, int numeroDeConciertos, int numeroDeGiras, int codigo, String nombre, String apellido, int edad, String nacionalidad, double salario) {
         super(codigo, nombre, apellido, edad, nacionalidad, salario);
         this.nombreArtistico = nombreArtistico;
@@ -80,7 +86,7 @@ public class Cantante extends Persona{
         }
     }
     
-    public List<Disco> lista(){
+    public List<Disco> listaDisco(){
         return discografia;
     }
 //getters and setters
@@ -124,55 +130,7 @@ public class Cantante extends Persona{
         this.numeroDeGiras = numeroDeGiras;
     }
 
-    public List<Disco> getDiscografia() {
-        return discografia;
-    }
 
-    public void setDiscografia(List<Disco> discografia) {
-        this.discografia = discografia;
-    }
-// sobrescritura del metodo hashCode
-    @Override
-    public int hashCode() {
-        int hash = 3;
-        hash = 17 * hash + Objects.hashCode(this.nombreArtistico);
-        hash = 17 * hash + Objects.hashCode(this.generoMusical);
-        hash = 17 * hash + this.numeroDeSencillos;
-        hash = 17 * hash + this.numeroDeConciertos;
-        hash = 17 * hash + this.numeroDeGiras;
-        hash = 17 * hash + Objects.hashCode(this.discografia);
-        return hash;
-    }
-//sobrescritura del metodo equals
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Cantante other = (Cantante) obj;
-        if (this.numeroDeSencillos != other.numeroDeSencillos) {
-            return false;
-        }
-        if (this.numeroDeConciertos != other.numeroDeConciertos) {
-            return false;
-        }
-        if (this.numeroDeGiras != other.numeroDeGiras) {
-            return false;
-        }
-        if (!Objects.equals(this.nombreArtistico, other.nombreArtistico)) {
-            return false;
-        }
-        if (!Objects.equals(this.generoMusical, other.generoMusical)) {
-            return false;
-        }
-        return Objects.equals(this.discografia, other.discografia);
-    }
 //sobreescritura del metodo toString
     @Override
     public String toString() {

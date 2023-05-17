@@ -17,4 +17,6 @@ public interface IPersonaDAO {
     public abstract void update(Persona persona);
     public abstract void delete(Persona persona);
     public List<Persona> findALL();
+    public abstract Persona buscarPorNombreDeDisco(String valor);
+    public abstract Persona buscarPorTituloDeCancion(String valor);
 }

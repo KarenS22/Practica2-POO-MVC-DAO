@@ -55,11 +55,10 @@ public class Disco {
     public int hashCode() {
         int hash = 7;
         hash = 97 * hash + this.codigo;
-        hash = 97 * hash + Objects.hashCode(this.nombre);
-        hash = 97 * hash + this.anioDeLazamiento;
         return hash;
     }
 //sobreescritura del metodo equals
+
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -72,20 +71,12 @@ public class Disco {
             return false;
         }
         final Disco other = (Disco) obj;
-        if (this.codigo != other.codigo) {
-            return false;
-        }
-        if (this.anioDeLazamiento != other.anioDeLazamiento) {
-            return false;
-        }
-        return Objects.equals(this.nombre, other.nombre);
+        return this.codigo == other.codigo;
     }
     
 //sobreescritura del metodo toString
     @Override
     public String toString() {
         return "Disco{" + "codigo=" + codigo + ", nombre=" + nombre + ", anioDeLazamiento=" + anioDeLazamiento + '}';
-    }
-    
-    
+    } 
 }

@@ -19,6 +19,12 @@ public class Compositor extends Persona {
     private List<Cantante> clientes;
 
     //constructor
+
+    public Compositor(int codigo, String nombre, String apellido) {
+        super(codigo, nombre, apellido);
+    }
+    
+    
     public Compositor(int numeroDeComposiciones, int codigo, String nombre, String apellido, int edad, String nacionalidad, double salario) {
         super(codigo, nombre, apellido, edad, nacionalidad, salario);
         this.numeroDeComposiciones = numeroDeComposiciones;
@@ -104,54 +110,6 @@ public class Compositor extends Persona {
 
     public void setNumeroDeComposiciones(int numeroDeComposiciones) {
         this.numeroDeComposiciones = numeroDeComposiciones;
-    }
-
-    public List<Cancion> getCancionesTop100Billboard() {
-        return cancionesTop100Billboard;
-    }
-
-    public void setCancionesTop100Billboard(List<Cancion> cancionesTop100Billboard) {
-        this.cancionesTop100Billboard = cancionesTop100Billboard;
-    }
-
-    public List<Cantante> getClientes() {
-        return clientes;
-    }
-
-    public void setClientes(List<Cantante> clientes) {
-        this.clientes = clientes;
-    }
-
-    //sobreescritura hashCode
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 13 * hash + this.numeroDeComposiciones;
-        hash = 13 * hash + Objects.hashCode(this.cancionesTop100Billboard);
-        hash = 13 * hash + Objects.hashCode(this.clientes);
-        return hash;
-    }
-
-    //sobreescritura equals
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Compositor other = (Compositor) obj;
-        if (this.numeroDeComposiciones != other.numeroDeComposiciones) {
-            return false;
-        }
-        if (!Objects.equals(this.cancionesTop100Billboard, other.cancionesTop100Billboard)) {
-            return false;
-        }
-        return Objects.equals(this.clientes, other.clientes);
     }
 
     //sobreescritura toString
