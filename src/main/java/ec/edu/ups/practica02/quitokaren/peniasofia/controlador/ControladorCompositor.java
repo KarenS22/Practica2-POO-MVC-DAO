@@ -8,7 +8,6 @@ package ec.edu.ups.practica02.quitokaren.peniasofia.controlador;
 import ec.edu.ups.practica02.quitokaren.peniasofia.idao.ICantanteDAO;
 import ec.edu.ups.practica02.quitokaren.peniasofia.vista.VistaCompositor;
 import ec.edu.ups.practica02.quitokaren.peniasofia.idao.ICompositorDAO;
-import ec.edu.ups.practica02.quitokaren.peniasofia.idao.IPersonaDAO;
 import ec.edu.ups.practica02.quitokaren.peniasofia.modelo.Cantante;
 import ec.edu.ups.practica02.quitokaren.peniasofia.modelo.Compositor;
 import ec.edu.ups.practica02.quitokaren.peniasofia.vista.VistaCantante;
@@ -27,7 +26,6 @@ public class ControladorCompositor {
     
     private ICompositorDAO compositorDAO;
     private ICantanteDAO cantanteDAO;
-    private IPersonaDAO personaDAO;
 
     public ControladorCompositor(VistaCompositor vistaCompositor, ICompositorDAO compositorDAO) {
         this.vistaCompositor = vistaCompositor;
@@ -35,12 +33,9 @@ public class ControladorCompositor {
     }
 
     
-    
-    
     public void registrar(){
         compositor = vistaCompositor.ingresarCompositor();
         compositorDAO.create(compositor); 
-        personaDAO.create(compositor);
     }
     
     public void verCompositor(){
@@ -51,7 +46,7 @@ public class ControladorCompositor {
     
     public void actualizarCompositor(){
         compositor = vistaCompositor.actualizarCompositor();
-        compositorDAO.delete(compositor);
+        compositorDAO.update(compositor);
     }
     
     public void eliminarCompositor(){
@@ -72,6 +67,11 @@ public class ControladorCompositor {
         compositorDAO.update(compositor);
     }
     
+    public void buscarPorTituloDeCancion(){
+        String valor = vistaCompositor.buscarCancion();
+        compositor = compositorDAO.buscarPorTituloDeCancion(valor);
+        vistaCompositor.verNombreyApellido(compositor);
+    }
     
     
 

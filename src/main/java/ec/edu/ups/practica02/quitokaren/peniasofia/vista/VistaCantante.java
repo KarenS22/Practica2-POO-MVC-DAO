@@ -47,7 +47,7 @@ public class VistaCantante {
         int numeroDeConciertos = teclado.nextInt();
         System.out.println("Ingrese el numero de giras del cantante: ");
         int numeroDeGiras = teclado.nextInt();
-        Persona cantante = new Cantante(nombreArtistico, generoMusical, numeroDeSencillos, numeroDeConciertos, numeroDeGiras, codigo, nombre, apellido, edad, nacionalidad, salario);       
+        Persona cantante = new Cantante(nombreArtistico, generoMusical, numeroDeSencillos, numeroDeConciertos, numeroDeGiras, codigo, nombre, apellido, edad, nacionalidad, salario);
         System.out.println("Ingrese la cantidad de discos del cantante: ");
         int nD = teclado.nextInt();
         for (int i = 0; i < nD; i++) {
@@ -64,7 +64,7 @@ public class VistaCantante {
         }
         //metodo para calcular salario final
         cantante.calcularSalario();
-        return (Cantante)cantante;
+        return (Cantante) cantante;
     }
 
     public Cantante actualizarCantante() {
@@ -105,7 +105,7 @@ public class VistaCantante {
 
     public int buscarCantante() {
         teclado = new Scanner(System.in);
-        System.out.println("Ingrese el id del cantante a eliminar: ");
+        System.out.println("Ingrese el id del cantante: ");
         int id = teclado.nextInt();
         return id;
     }
@@ -118,6 +118,18 @@ public class VistaCantante {
         for (Cantante cantante : cantantes) {
             System.out.println("Datos del cantante: " + cantante);
         }
+    }
+
+    public String buscarPorDisco() {
+        teclado = new Scanner(System.in);
+        System.out.println("BUSQUEDA POR NOMBRE DE DISCO");
+        System.out.println("Ingrese el nombre del disco a buscar: ");
+        String valor = teclado.next();
+        return valor;
+    }
+    
+    public void verNombreyApellido(Cantante cantante){
+        System.out.println("Canatante: " + cantante.getNombre() + " " + cantante.getApellido());
     }
 
 }

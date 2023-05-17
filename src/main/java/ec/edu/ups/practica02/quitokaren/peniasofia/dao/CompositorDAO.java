@@ -5,6 +5,7 @@
 package ec.edu.ups.practica02.quitokaren.peniasofia.dao;
 
 import ec.edu.ups.practica02.quitokaren.peniasofia.idao.ICompositorDAO;
+import ec.edu.ups.practica02.quitokaren.peniasofia.modelo.Cancion;
 import ec.edu.ups.practica02.quitokaren.peniasofia.modelo.Compositor;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -14,7 +15,8 @@ import java.util.List;
  *
  * @author ACER
  */
-public class CompositorDAO implements ICompositorDAO{
+public class CompositorDAO implements ICompositorDAO {
+
     private List<Compositor> listaCompositor;
 
     public CompositorDAO() {
@@ -29,7 +31,7 @@ public class CompositorDAO implements ICompositorDAO{
     @Override
     public Compositor read(int codigo) {
         for (Compositor compositor : listaCompositor) {
-            if(compositor.getCodigo() == codigo){
+            if (compositor.getCodigo() == codigo) {
                 return compositor;
             }
         }
@@ -40,7 +42,7 @@ public class CompositorDAO implements ICompositorDAO{
     public void update(Compositor compositor) {
         for (int i = 0; i < listaCompositor.size(); i++) {
             Compositor com = listaCompositor.get(i);
-            if (com.getCodigo() == compositor.getCodigo()){
+            if (com.getCodigo() == compositor.getCodigo()) {
                 listaCompositor.set(i, compositor);
                 break;
             }
@@ -50,9 +52,9 @@ public class CompositorDAO implements ICompositorDAO{
     @Override
     public void delete(Compositor compositor) {
         Iterator<Compositor> it = listaCompositor.iterator();
-        while(it.hasNext()){
+        while (it.hasNext()) {
             Compositor co = it.next();
-            if(co.getCodigo() == compositor.getCodigo()){
+            if (co.getCodigo() == compositor.getCodigo()) {
                 it.remove();
                 break;
             }
@@ -63,8 +65,16 @@ public class CompositorDAO implements ICompositorDAO{
     public List<Compositor> findALL() {
         return listaCompositor;
     }
-    
-    
-    
-    
+
+    @Override
+    public Compositor buscarPorTituloDeCancion(String valor) {
+        for (Compositor compositor : listaCompositor) {
+            for (Cancion cancion : compositor.listarCanciones()) {
+                if (cancion.getTitulo().equals(valor)) {
+                    return compositor;
+                }
+            }
+        }
+        return null;
+    }
 }

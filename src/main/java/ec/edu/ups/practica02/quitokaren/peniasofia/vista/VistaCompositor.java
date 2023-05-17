@@ -63,7 +63,7 @@ public class VistaCompositor {
         // calculo del salario final 
         compositor.calcularSalario();
         // colocar el objeto en la lista personas
-        return (Compositor)compositor;
+        return (Compositor) compositor;
     }
 
     public Compositor actualizarCompositor() {
@@ -86,31 +86,43 @@ public class VistaCompositor {
         double salarioC = teclado.nextDouble();
         System.out.println("Ingrese el numero de composiciones del compositor: ");
         int numeroDeComposiciones = teclado.nextInt();
-        
+
         return new Compositor(numeroDeComposiciones, codigo, nombreC, apellidoC, edadC, nacionalidadC, salarioC);
     }
-    
-    public Compositor eliminarCompositor(){
+
+    public Compositor eliminarCompositor() {
         teclado = new Scanner(System.in);
         int id = teclado.nextInt();
         return new Compositor(id, null, null);
     }
-    
-    public int buscarCompositor(){
+
+    public int buscarCompositor() {
         teclado = new Scanner(System.in);
         System.out.println("Ingrese el codigo a buscar: ");
         int codigo = teclado.nextInt();
         return codigo;
     }
-    
-    public void verCompositor(Compositor compositor){
-        System.out.println("Datos del Compositor: " + compositor );
+
+    public void verCompositor(Compositor compositor) {
+        System.out.println("Datos del Compositor: " + compositor);
     }
-    
-    public void verCompositores(List<Compositor> compositores){
+
+    public void verCompositores(List<Compositor> compositores) {
         for (Compositor compositore : compositores) {
             System.out.println("Datos del Compositor: " + compositore);
         }
+    }
+
+    public String buscarCancion() {
+        teclado = new Scanner(System.in);
+        System.out.println("BUSQUEDA POR TITULO DE CANCION");
+        System.out.println("Ingrese el titulo de la cancion a buscar: ");
+        String valorT = teclado.next();
+        return valorT;
+    }
+    
+    public void verNombreyApellido(Compositor compositor){
+        System.out.println("Canatante: " + compositor.getNombre() + " " + compositor.getApellido());
     }
 
 }
