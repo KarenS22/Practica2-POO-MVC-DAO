@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package ec.edu.ups.practica02.quitokaren.peniasofia.vista;
 
 import ec.edu.ups.practica02.quitokaren.peniasofia.modelo.Cantante;
@@ -9,18 +6,14 @@ import ec.edu.ups.practica02.quitokaren.peniasofia.modelo.Persona;
 import java.util.List;
 import java.util.Scanner;
 
-/**
- *
- * @author ACER
- */
 public class VistaCantante {
-
+//atributo
     private Scanner teclado;
-
+//constructor
     public VistaCantante() {
         teclado = new Scanner(System.in);
     }
-
+//ingreso por teclado de los datos para los diferentes metodos
     public Cantante ingresarCantante() {
         teclado = new Scanner(System.in);
         System.out.println("INGRESO DE CANTANTE");
@@ -104,7 +97,6 @@ public class VistaCantante {
     }
 
     public int buscarCantante() {
-        teclado = new Scanner(System.in);
         System.out.println("Ingrese el id del cantante: ");
         int id = teclado.nextInt();
         return id;

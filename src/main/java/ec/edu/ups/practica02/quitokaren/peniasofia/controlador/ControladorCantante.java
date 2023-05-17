@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package ec.edu.ups.practica02.quitokaren.peniasofia.controlador;
 
 import ec.edu.ups.practica02.quitokaren.peniasofia.idao.ICantanteDAO;
@@ -9,11 +6,9 @@ import ec.edu.ups.practica02.quitokaren.peniasofia.modelo.Cantante;
 import ec.edu.ups.practica02.quitokaren.peniasofia.vista.VistaCantante;
 import java.util.List;
 
-/**
- *
- * @author ACER
- */
+
 public class ControladorCantante {
+    //atributos
     private VistaCantante vistaCantante;
     
     private Cantante cantante;
@@ -26,8 +21,6 @@ public class ControladorCantante {
         this.cantanteDAO = cantanteDAO;
     }
 
-
-    
     public void registrar(){
         cantante = vistaCantante.ingresarCantante();
         cantanteDAO.create(cantante);

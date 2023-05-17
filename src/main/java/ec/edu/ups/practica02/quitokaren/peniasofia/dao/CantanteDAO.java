@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package ec.edu.ups.practica02.quitokaren.peniasofia.dao;
 
 import ec.edu.ups.practica02.quitokaren.peniasofia.idao.ICantanteDAO;
@@ -11,18 +8,15 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-/**
- *
- * @author ACER
- */
+
 public class CantanteDAO implements ICantanteDAO {
-
+//atributo
     private List<Cantante> listaCantante;
-
+//constructor
     public CantanteDAO() {
-        listaCantante = new ArrayList<>();
+        this.listaCantante = new ArrayList<>();
     }
-
+//sobreescriturametodos CRUD
     @Override
     public void create(Cantante cantante) {
         listaCantante.add(cantante);
@@ -65,7 +59,7 @@ public class CantanteDAO implements ICantanteDAO {
     public List<Cantante> findALL() {
         return listaCantante;
     }
-
+//sobreescritura metodo buscar por disco y devuelve un cantante
     @Override
     public Cantante buscarPorNombreDeDisco(String valor) {
         for (Cantante cantante : listaCantante) {

@@ -1,31 +1,22 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package ec.edu.ups.practica02.quitokaren.peniasofia.modelo;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
-/**
- *
- * @author ACER
- */
 public class Compositor extends Persona {
      //atributos
     private int numeroDeComposiciones;
     private List<Cancion> cancionesTop100Billboard;
     private List<Cantante> clientes;
 
-    //constructor
-
+    //constructores
     public Compositor(int codigo, String nombre, String apellido) {
         super(codigo, nombre, apellido);
     }
     
-    
-    public Compositor(int numeroDeComposiciones, int codigo, String nombre, String apellido, int edad, String nacionalidad, double salario) {
+    public Compositor(int numeroDeComposiciones, int codigo, String nombre, String apellido, int edad,
+            String nacionalidad, double salario) {
         super(codigo, nombre, apellido, edad, nacionalidad, salario);
         this.numeroDeComposiciones = numeroDeComposiciones;
         this.cancionesTop100Billboard =new ArrayList();
@@ -59,21 +50,21 @@ public class Compositor extends Persona {
         Cancion cancion = new Cancion(codigo, titulo, letra, tiempoEnMinutos);
         cancionesTop100Billboard.add(cancion);
     }
-    
+    //metodo si se quiere actualizar los datos de de las canciones
     public void actualizarCancion(Cancion cancion){
         if (cancionesTop100Billboard.contains(cancion)){
             int index = cancionesTop100Billboard.indexOf(cancion);
             cancionesTop100Billboard.set(index, cancion);
         }
     }
-    
+    // metodo para eliminar la cancion
     public void eliminarCancion(Cancion cancion){
         if (cancionesTop100Billboard.contains(cancion)){
             int index = cancionesTop100Billboard.indexOf(cancion);
             cancionesTop100Billboard.remove(index);
         }
     }
-    
+    // metod que devuelve una lista de canciones
     public List<Cancion> listarCanciones(){
         return cancionesTop100Billboard;
     }
@@ -84,30 +75,28 @@ public class Compositor extends Persona {
     public void agregarCliente(Cantante cliente){
         clientes.add(cliente);
     }
-    
+    //metodo actualiza datos de cliente
     public void actualizarCliente(Cantante cantante){
         if (clientes.contains(cantante)){
             int index = clientes.indexOf(cantante);
             clientes.set(index, cantante);
         }
     }
-    
+    //metodo elimina cliente
     public void eliminarCliente(Cantante cantante){
         if (clientes.contains(cantante)){
             int index = clientes.indexOf(cantante);
             clientes.remove(index);
         }
     }
-    
+    //lista de clientes
     public List<Cantante> listarClientes(){
         return clientes;
     }
-    
        //getters and setters
     public int getNumeroDeComposiciones() {
         return numeroDeComposiciones;
     }
-
     public void setNumeroDeComposiciones(int numeroDeComposiciones) {
         this.numeroDeComposiciones = numeroDeComposiciones;
     }
@@ -115,6 +104,7 @@ public class Compositor extends Persona {
     //sobreescritura toString
     @Override
     public String toString() {
-        return "Compositor{" + super.toString() + "numeroDeComposiciones=" + numeroDeComposiciones + ", cancionesTop100Billboard=" + cancionesTop100Billboard + ", clientes=" + clientes + '}';
+        return "Compositor{" + super.toString() + "numeroDeComposiciones=" + numeroDeComposiciones + ","
+                + " cancionesTop100Billboard=" + cancionesTop100Billboard + ", clientes=" + clientes + '}';
     } 
 }

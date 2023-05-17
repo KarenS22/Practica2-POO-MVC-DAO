@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package ec.edu.ups.practica02.quitokaren.peniasofia.vista;
 
 import ec.edu.ups.practica02.quitokaren.peniasofia.modelo.Compositor;
@@ -10,20 +7,15 @@ import java.util.List;
 
 import java.util.Scanner;
 
-/**
- *
- * @author ACER
- */
 public class VistaCompositor {
-
+//atributo
     private Scanner teclado;
-
+//constructor
     public VistaCompositor() {
         teclado = new Scanner(System.in);
     }
-
+// ingreso de datos por teclado pa sus respectivos metodos
     public Compositor ingresarCompositor() {
-
         System.out.println("INGRESO DE COMPOSITOR");
         //ingreso de datos con scanner
         System.out.println("Ingrese el codigo del compositor: ");
@@ -40,9 +32,9 @@ public class VistaCompositor {
         double salarioC = teclado.nextDouble();
         System.out.println("Ingrese el numero de composiciones del compositor: ");
         int numeroDeComposiciones = teclado.nextInt();
-
         //instanciar compositor
-        Persona compositor = new Compositor(numeroDeComposiciones, codigoC, nombreC, apellidoC, edadC, nacionalidadC, salarioC);
+        Persona compositor = new Compositor(numeroDeComposiciones, codigoC, nombreC, 
+                apellidoC, edadC, nacionalidadC, salarioC);
         System.out.println("Ingrese el numero de canciones en el Top 100 Billboard del compositor: ");
         int nC = teclado.nextInt();
 
@@ -62,7 +54,6 @@ public class VistaCompositor {
         }
         // calculo del salario final 
         compositor.calcularSalario();
-        // colocar el objeto en la lista personas
         return (Compositor) compositor;
     }
 

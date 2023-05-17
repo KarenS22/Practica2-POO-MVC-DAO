@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package ec.edu.ups.practica02.quitokaren.peniasofia.dao;
 
 import ec.edu.ups.practica02.quitokaren.peniasofia.idao.ICompositorDAO;
@@ -11,23 +8,18 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-/**
- *
- * @author ACER
- */
 public class CompositorDAO implements ICompositorDAO {
-
+//atributos
     private List<Compositor> listaCompositor;
-
+//constructor
     public CompositorDAO() {
-        listaCompositor = new ArrayList<>();
+        this.listaCompositor = new ArrayList<>();
     }
-
+//sobreescritura metodos CRUD y buscar por Cancion
     @Override
     public void create(Compositor compositor) {
         listaCompositor.add(compositor);
     }
-
     @Override
     public Compositor read(int codigo) {
         for (Compositor compositor : listaCompositor) {
@@ -37,7 +29,6 @@ public class CompositorDAO implements ICompositorDAO {
         }
         return null;
     }
-
     @Override
     public void update(Compositor compositor) {
         for (int i = 0; i < listaCompositor.size(); i++) {
@@ -48,7 +39,6 @@ public class CompositorDAO implements ICompositorDAO {
             }
         }
     }
-
     @Override
     public void delete(Compositor compositor) {
         Iterator<Compositor> it = listaCompositor.iterator();

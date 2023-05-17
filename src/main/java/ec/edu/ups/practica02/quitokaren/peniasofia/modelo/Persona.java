@@ -1,14 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package ec.edu.ups.practica02.quitokaren.peniasofia.modelo;
 
 
-/**
- *
- * @author ACER
- */
 public abstract class Persona {
     //atributos
     private int codigo;
@@ -26,7 +19,8 @@ public abstract class Persona {
         this.apellido = apellido;
     }
 
-    public Persona(int codigo, String nombre, String apellido, int edad, String nacionalidad, double salario) {
+    public Persona(int codigo, String nombre, String apellido, int edad, String nacionalidad, 
+            double salario) {
         this.codigo = codigo;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -113,7 +107,8 @@ public abstract class Persona {
     //sobreescritura toString
     @Override
     public String toString() {
-        return "Persona{" + "codigo=" + codigo + ", nombre=" + nombre + ", apellido=" + apellido + ", edad=" + edad + ", nacionalidad=" + nacionalidad + ", salario=" + salario + '}';
+        return "Persona{" + "codigo=" + codigo + ", nombre=" + nombre + ", apellido=" + apellido + ","
+                + " edad=" + edad + ", nacionalidad=" + nacionalidad + ", salario=" + salario + '}';
     }
     
     //metodo abstracto que se modificará en las subclase

@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package ec.edu.ups.practica02.quitokaren.peniasofia.controlador;
 
 
@@ -13,10 +10,6 @@ import ec.edu.ups.practica02.quitokaren.peniasofia.modelo.Compositor;
 import ec.edu.ups.practica02.quitokaren.peniasofia.vista.VistaCantante;
 import java.util.List;
 
-/**
- *
- * @author ACER
- */
 public class ControladorCompositor {
     private VistaCompositor vistaCompositor;
     private VistaCantante vistaCantante;
@@ -27,12 +20,15 @@ public class ControladorCompositor {
     private ICompositorDAO compositorDAO;
     private ICantanteDAO cantanteDAO;
 
-    public ControladorCompositor(VistaCompositor vistaCompositor, ICompositorDAO compositorDAO) {
-        this.vistaCompositor = vistaCompositor;
-        this.compositorDAO = compositorDAO;
-    }
 
+    public ControladorCompositor(VistaCompositor vistaCompositor, VistaCantante vistaCantante, ICompositorDAO compositorDAO, ICantanteDAO cantanteDAO) {
+        this.vistaCompositor = vistaCompositor;
+        this.vistaCantante = vistaCantante;
+        this.compositorDAO = compositorDAO;
+        this.cantanteDAO = cantanteDAO;
+    }
     
+
     public void registrar(){
         compositor = vistaCompositor.ingresarCompositor();
         compositorDAO.create(compositor); 
@@ -61,8 +57,10 @@ public class ControladorCompositor {
     }
     
     public void agregarCliente(){
-        int codigo = vistaCantante.buscarCantante();
-        cantante = cantanteDAO.read(codigo);
+        int id = vistaCantante.buscarCantante();
+        cantante = cantanteDAO.read(id);
+        int codigoC = vistaCompositor.buscarCompositor();
+        compositor = compositorDAO.read(codigoC);
         compositor.agregarCliente(cantante);
         compositorDAO.update(compositor);
     }
@@ -72,7 +70,4 @@ public class ControladorCompositor {
         compositor = compositorDAO.buscarPorTituloDeCancion(valor);
         vistaCompositor.verNombreyApellido(compositor);
     }
-    
-    
-
 }

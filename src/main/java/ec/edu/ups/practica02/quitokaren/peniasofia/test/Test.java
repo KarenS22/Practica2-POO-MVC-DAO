@@ -1,6 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- */
+
 package ec.edu.ups.practica02.quitokaren.peniasofia.test;
 
 import ec.edu.ups.practica02.quitokaren.peniasofia.controlador.ControladorCantante;
@@ -11,10 +9,6 @@ import ec.edu.ups.practica02.quitokaren.peniasofia.vista.VistaCantante;
 import ec.edu.ups.practica02.quitokaren.peniasofia.vista.VistaCompositor;
 import java.util.Scanner;
 
-/**
- *
- * @author ACER
- */
 public class Test {
 
     public static void main(String[] args) {
@@ -25,7 +19,7 @@ public class Test {
         CompositorDAO compositorDAO = new CompositorDAO();
         CantanteDAO cantanteDAO = new CantanteDAO();
 
-        ControladorCompositor controladorCompositor = new ControladorCompositor(vistaCompositor, compositorDAO);
+        ControladorCompositor controladorCompositor = new ControladorCompositor(vistaCompositor, vistaCantante, compositorDAO, cantanteDAO);
         ControladorCantante controladorCantante = new ControladorCantante(vistaCantante, cantanteDAO);
 
         // instancia de Scanner para ingreso por teclado (opcion, menu)
