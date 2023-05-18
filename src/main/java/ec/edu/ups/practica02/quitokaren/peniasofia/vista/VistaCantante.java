@@ -1,8 +1,6 @@
 package ec.edu.ups.practica02.quitokaren.peniasofia.vista;
 
 import ec.edu.ups.practica02.quitokaren.peniasofia.modelo.Cantante;
-import ec.edu.ups.practica02.quitokaren.peniasofia.modelo.Disco;
-import ec.edu.ups.practica02.quitokaren.peniasofia.modelo.Persona;
 import java.util.List;
 import java.util.Scanner;
 
@@ -46,10 +44,8 @@ public class VistaCantante {
         return new Cantante(nombreArtistico, generoMusical, numeroDeSencillos, numeroDeConciertos, numeroDeGiras, codigo, nombre, apellido, edad, nacionalidad, salario);
     }
 
-    public Cantante actualizarCantante() {
+    public Cantante actualizarCantante(int codigo) {
         teclado = new Scanner(System.in);
-        System.out.println("Ingrese el codigo del cantante a actualizar");
-        int codigo = teclado.nextInt();
         System.out.println("ACTUALIZACION DE DATOS DE CANTANTE");
         //ingreso de datos con Scanner
         System.out.println("Ingrese el nombre del cantante: ");
@@ -75,10 +71,8 @@ public class VistaCantante {
         return new Cantante(nombreArtistico, generoMusical, numeroDeSencillos, numeroDeConciertos, numeroDeGiras, codigo, nombre, apellido, edad, nacionalidad, salario);
     }
 
-    public Cantante eliminarCantante() {
+    public Cantante eliminarCantante(int id) {
         teclado = new Scanner(System.in);
-        System.out.println("Ingrese el id del cantante a eliminar: ");
-        int id = teclado.nextInt();
         return new Cantante(id, null, null);
     }
 

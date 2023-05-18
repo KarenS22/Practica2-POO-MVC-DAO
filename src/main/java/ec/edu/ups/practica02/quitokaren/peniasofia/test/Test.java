@@ -22,8 +22,10 @@ public class Test {
         CompositorDAO compositorDAO = new CompositorDAO();
         CantanteDAO cantanteDAO = new CantanteDAO();
 
-        ControladorCompositor controladorCompositor = new ControladorCompositor(vistaCompositor, vistaCantante, compositorDAO, cantanteDAO);
-        ControladorCantante controladorCantante = new ControladorCantante(vistaCantante, vistaDisco, cantanteDAO);
+        ControladorCompositor controladorCompositor = new ControladorCompositor(vistaCompositor, 
+                vistaCantante, vistaCancion, compositorDAO, cantanteDAO);
+        ControladorCantante controladorCantante = new ControladorCantante(vistaCantante, vistaDisco, 
+                cantanteDAO);
 
         // instancia de Scanner para ingreso por teclado (opcion, menu)
         Scanner teclado = new Scanner(System.in);
@@ -32,7 +34,7 @@ public class Test {
         //bucle do
         do {
             //menu 
-            System.out.println("\n Menu MusikUPS \n1. Ingresar un cantante \n2. Ingresar un compositor \n3. Agregar Clientes \n4. Imprimir personas \n5. Buscar cantante por nombre de disco \n6. Buscar compositor por titulo de cancion \n7. Salir ");
+            System.out.println("\n MENU MUSIK-UPS \n1. Menu Cantante \n2.Menu Compositor \n3.Salir ");
             //ingreso por teclado de la opcion
             op = teclado.nextInt();
             switch (op) {
@@ -40,7 +42,7 @@ public class Test {
                     int opcionCantante;
                     do {
                         //menu interno para opciones adicionales en el caso 1
-                        System.out.println("\n Menu Cantante \n1. Ingresar cantante  \n2. Ver cantante  \n3.Actualizar cantante \n4.Eliminar cantante \n5.Salir ");
+                        System.out.println("\n MENU CANTANTE \n1. Ingresar cantante  \n2. Ver cantante  \n3.Actualizar cantante \n4.Eliminar cantante \n5.Ver lista de cantantes \n6.Menu Disco \n.7Salir");
                         //ingreso por teclado de la opcion
                         opcionCantante = teclado.nextInt();
                         switch (opcionCantante) {
@@ -57,44 +59,128 @@ public class Test {
                                 controladorCantante.eliminarCantante();
                                 break;
                             case 5:
-                                break;
+                                controladorCantante.verCantantes();
                             case 6:
-                                
+                                int opcionDisco;
+                                do {
+                                    //menu interno para opciones adicionales en el caso 1
+                                    System.out.println("\n MENU DISCO \n1. Ingresar disco  \n2.Actualizar disco \n3.Eliminar disco \n4.Salir");
+                                    //ingreso por teclado de la opcion
+                                    opcionDisco = teclado.nextInt();
+                                    switch (opcionDisco) {
+                                        case 1:
+                                            controladorCantante.ingresarDisco();
+
+                                            break;
+                                        case 2:
+                                            controladorCantante.actualizarDisco();
+                                            break;
+                                        case 3:
+                                            controladorCantante.eliminarDisco();
+                                            break;
+                                        case 4:
+                                            break;
+                                        default:
+                                            System.out.println("Error, opción inválida");
+                                            break;
+                                    }
+                                } while (opcionDisco != 4);
+                                break;
+
+                            case 7:
+                                break;
                             default:
                                 System.out.println("Error, opción inválida");
                                 break;
                         }
-                    } while (opcionCantante != 5);
+                    } while (opcionCantante != 7);
                     break;
-               
                 case 2:
-                    controladorCompositor.registrar();
+
+                    int opcionCompositor;
+                    do {
+                        //menu interno para opciones adicionales en el caso 1
+                        System.out.println("\n MENU COMPOSITOR \n1. Ingresar compositor  \n2. Ver compositor  \n3.Actualizar compositor \n4.Eliminar compositor \n5.Ver compositores \n6.Menu Cancion \n7.MenuCliente \n8.Salir ");
+                        //ingreso por teclado de la opcion
+                        opcionCompositor = teclado.nextInt();
+                        switch (opcionCompositor) {
+                            case 1:
+                                controladorCompositor.registrar();
+                                break;
+                            case 2:
+                                controladorCompositor.verCompositor();
+                                break;
+                            case 3:
+                                controladorCompositor.actualizarCompositor();
+                                break;
+                            case 4:
+                                controladorCompositor.eliminarCompositor();
+                                break;
+                            case 5:
+                                controladorCantante.verCantantes();
+                            case 6:
+                                int opcionCancion;
+                                do {
+                                    //menu interno para opciones adicionales en el caso 1
+                                    System.out.println("\n MENU CANCION \n1. Ingresar cancion  \n2.Actualizar cancion \n3.Eliminar cancion \n4.Salir");
+                                    //ingreso por teclado de la opcion
+                                    opcionCancion = teclado.nextInt();
+                                    switch (opcionCancion) {
+                                        case 1:
+                                            controladorCompositor.ingresarCancion();
+                                            break;
+                                        case 2:
+                                            controladorCompositor.actualizarCancion();
+                                            break;
+                                        case 3:
+                                            controladorCompositor.eliminarCancion();
+                                            break;
+                                        case 4:
+                                            break;
+                                        default:
+                                            System.out.println("Error, opción inválida");
+                                            break;
+                                    }
+                                } while (opcionCancion != 4);
+                                break;
+                            case 7:
+                                int opcionCliente;
+                                do {
+                                    //menu interno para opciones adicionales en el caso 1
+                                    System.out.println("\n MENU CLIENTE \n1. Ingresar cliente  \n2.Eliminar cliente \n3.Salir");
+                                    //ingreso por teclado de la opcion
+                                    opcionCliente = teclado.nextInt();
+                                    switch (opcionCliente) {
+                                        case 1:
+                                            controladorCompositor.agregarCliente();
+                                            break;
+                                        case 2:
+                                            controladorCompositor.eliminarCliente();
+                                            break;
+                                        case 3:
+                                            break;
+                                        default:
+                                            System.out.println("Error, opción inválida");
+                                            break;
+                                    }
+                                } while (opcionCliente != 3);
+                            case 8: 
+                                break;
+                            default:
+                                System.out.println("Error, opción inválida");
+                                break;
+                        }
+                    } while (opcionCompositor != 8);
                     break;
                 case 3:
-                    controladorCompositor.agregarCliente();
-                    break;
-                case 4:
-                    // imprime la lista de personas
-                    controladorCompositor.verCompositores();
-                    controladorCantante.verCantantes();
-                    break;
-                case 5:
-                    controladorCantante.buscarPorNombreDeDisco();
-                    break;
-                case 6:
-                    controladorCompositor.buscarPorTituloDeCancion();
-                    break;
-                case 7:
                     //salida del bucle
                     break;
                 default:
                     //si es que se ingresa una opcion invalida
                     System.out.println("Error, opcion invalida ");
                     ;
-
             }
             //salida del bucle
-        } while (op != 7);
+        } while (op != 3);
     }
-
 }

@@ -1,17 +1,10 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package ec.edu.ups.practica02.quitokaren.peniasofia.vista;
 
 import ec.edu.ups.practica02.quitokaren.peniasofia.modelo.Disco;
 import java.util.List;
 import java.util.Scanner;
 
-/**
- *
- * @author ACER
- */
 public class VistaDisco {
 
     private Scanner teclado;
@@ -33,11 +26,8 @@ public class VistaDisco {
 
     }
 
-    public Disco actualizarDisco() {
+    public Disco actualizarDisco(int codigoD) {
         System.out.println("ACTUALIZACION DE DISCO ");
-        System.out.println("Ingrese el codigo de Disco a actulizar: ");
-        int codigoD = teclado.nextInt();
-
         System.out.println("Ingrese el nombre del disco: ");
         String nombreD = teclado.next();
         System.out.println("Ingrese el año de lanzamiento del disco: ");
@@ -47,9 +37,9 @@ public class VistaDisco {
     }
 
     public Disco eliminarDisco() {
-        System.out.println("Ingrese el id del disco a eliminar: ");
-        int nD = teclado.nextInt();
-        return new Disco(nD);
+        System.out.println("Ingrese codigo de disco a eliminar: ");
+        int codigo = teclado.nextInt();
+        return new Disco(codigo);
     }
 
     public int buscarDisco() {

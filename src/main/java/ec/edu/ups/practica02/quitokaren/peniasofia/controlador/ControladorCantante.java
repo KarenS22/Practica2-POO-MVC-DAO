@@ -29,8 +29,6 @@ public class ControladorCantante {
 
     public void registrar(){
         cantante = vistaCantante.ingresarCantante();
-        disco = vistaDisco.ingresarDisco();
-        cantante.agregarDisco(disco);
         cantante.calcularSalario();
         cantanteDAO.create(cantante);
     }
@@ -42,17 +40,15 @@ public class ControladorCantante {
     }
     
     public void actualizarCantante(){
-        cantante = vistaCantante.actualizarCantante();
-        disco = vistaDisco.actualizarDisco();
-        cantante.actualizarDisco(disco);
+        int codigo = vistaCantante.buscarCantante();
+        cantante = vistaCantante.actualizarCantante(codigo);
         cantante.calcularSalario();
         cantanteDAO.update(cantante);
     }
     
     public void eliminarCantante(){
-        cantante = vistaCantante.eliminarCantante();
-        disco = vistaDisco.eliminarDisco();
-        cantante.eliminarDisco(disco);
+        int codigo = vistaCantante.buscarCantante();
+        cantante = vistaCantante.eliminarCantante(codigo);
         cantanteDAO.delete(cantante);
     }
     
@@ -60,6 +56,48 @@ public class ControladorCantante {
         List<Cantante> cantantes;
         cantantes = cantanteDAO.findALL();
         vistaCantante.verCantantes(cantantes);
+    }
+    
+    
+    public void ingresarDisco(){
+        int id = vistaCantante.buscarCantante();
+        cantante = cantanteDAO.read(id);
+        disco = vistaDisco.ingresarDisco();
+        cantante.agregarDisco(disco);
+        cantanteDAO.update(cantante);
+    }
+    
+    public void verDisco(){
+         int codigoC = vistaCantante.buscarCantante();
+        int codigoD = vistaDisco.buscarDisco();
+        cantante = cantanteDAO.read(codigoC);
+        disco = cantante.buscarDisco(codigoD);
+        vistaDisco.verDisco(disco);
+    }
+    
+    public void actualizarDisco(){
+        int codigoC = vistaCantante.buscarCantante();
+        int codigoD = vistaDisco.buscarDisco();
+        cantante = cantanteDAO.read(codigoC);
+        disco = vistaDisco.actualizarDisco(codigoD);
+        cantante.actualizarDisco(disco);
+        cantanteDAO.update(cantante);
+    }
+    
+    public void eliminarDisco(){
+        int id = vistaCantante.buscarCantante();
+        cantante = cantanteDAO.read(id);
+        disco = vistaDisco.eliminarDisco();
+        cantante.eliminarDisco(disco);
+        cantanteDAO.update(cantante);
+    }
+    
+    public void verDiscos(){
+        int id = vistaCantante.buscarCantante();
+        cantante = cantanteDAO.read(id);
+        List<Disco> listaDisco;
+        listaDisco = cantante.listaDisco();
+        vistaDisco.verDiscografia(listaDisco);
     }
     
     public void buscarPorNombreDeDisco(){

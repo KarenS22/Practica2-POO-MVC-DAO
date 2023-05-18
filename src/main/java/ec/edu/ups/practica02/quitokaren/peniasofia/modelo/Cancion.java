@@ -10,6 +10,11 @@ public class Cancion {
 //constructor vacio
     public Cancion() {
     }
+
+    public Cancion(int codigo) {
+        this.codigo = codigo;
+    }
+    
 //constructos con todos los parametros
     public Cancion(int codigo, String titulo, String letra, double tiempoEnMinutos) {
         this.codigo = codigo;
@@ -51,7 +56,7 @@ public class Cancion {
         hash = 37 * hash + this.codigo;
         return hash;
     }
-    
+   
 //sobreescritura metodo equals
     @Override
     public boolean equals(Object obj) {
@@ -67,7 +72,6 @@ public class Cancion {
         final Cancion other = (Cancion) obj;
         return this.codigo == other.codigo;
     }
-
 //sobreescritura toString
     @Override
     public String toString() {

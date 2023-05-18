@@ -73,11 +73,9 @@ public abstract class Persona {
     public double getSalario() {
         return salario;
     }
-
     public void setSalario(double salario) {
         this.salario = salario;
     }
-
     //sobreescritura hashCode
     @Override    
     public int hashCode() {
@@ -85,9 +83,7 @@ public abstract class Persona {
         hash = 53 * hash + this.codigo;
         return hash;
     }
-
     //sobreescritura equals
-
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -103,7 +99,6 @@ public abstract class Persona {
         return this.codigo == other.codigo;
     }
    
-
     //sobreescritura toString
     @Override
     public String toString() {

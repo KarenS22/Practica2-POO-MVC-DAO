@@ -46,8 +46,7 @@ public class Compositor extends Persona {
     metodo agregarCancion donde se tiene que poner 4 parametros de entrada que crearan 
     un objeto cancion que luego sera agregado a la lista cancionesTop100Billboard
     */
-    public void agregarCancion(int codigo, String titulo, String letra, double tiempoEnMinutos){
-        Cancion cancion = new Cancion(codigo, titulo, letra, tiempoEnMinutos);
+    public void agregarCancion(Cancion cancion){
         cancionesTop100Billboard.add(cancion);
     }
     //metodo si se quiere actualizar los datos de de las canciones
@@ -67,6 +66,10 @@ public class Compositor extends Persona {
     // metod que devuelve una lista de canciones
     public List<Cancion> listarCanciones(){
         return cancionesTop100Billboard;
+    }
+    
+    public Cancion buscarCancion(int id){
+        return cancionesTop100Billboard.get(id);
     }
     /*
     metodo agregarCliente se pone un objeto tipo Cantante que luego sera 
@@ -92,6 +95,9 @@ public class Compositor extends Persona {
     //lista de clientes
     public List<Cantante> listarClientes(){
         return clientes;
+    }
+    public Cantante buscarCli(int id){
+        return clientes.get(id);
     }
        //getters and setters
     public int getNumeroDeComposiciones() {

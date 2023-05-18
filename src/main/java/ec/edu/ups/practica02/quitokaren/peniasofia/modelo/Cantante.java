@@ -76,6 +76,10 @@ public class Cantante extends Persona{
     public List<Disco> listaDisco(){
         return discografia;
     }
+    
+    public Disco buscarDisco(int id){
+        return discografia.get(id);
+    }
 //getters and setters
     public String getNombreArtistico() {
         return nombreArtistico;

@@ -36,10 +36,8 @@ public class VistaCompositor {
                     
     }
 
-    public Compositor actualizarCompositor() {
+    public Compositor actualizarCompositor(int codigo) {
         teclado = new Scanner(System.in);
-        System.out.println("Ingrese el codigo del cliente a actualizar: ");
-        int codigo = teclado.nextInt();
         System.out.println("ACTUALIZACION DEL COMPOSITOR");
         System.out.println("Ingrese el nombre del compositor: ");
         String nombreC = teclado.next();
@@ -57,9 +55,7 @@ public class VistaCompositor {
         return new Compositor(numeroDeComposiciones, codigo, nombreC, apellidoC, edadC, nacionalidadC, salarioC);
     }
 
-    public Compositor eliminarCompositor() {
-        teclado = new Scanner(System.in);
-        int id = teclado.nextInt();
+    public Compositor eliminarCompositor(int id) {
         return new Compositor(id, null, null);
     }
 
