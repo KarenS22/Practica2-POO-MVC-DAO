@@ -20,29 +20,31 @@ public class VistaDisco {
         teclado = new Scanner(System.in);
     }
 
-    public Disco ingresarDisco(){
-            System.out.println("INGRESO DE DISCO ");
-            System.out.println("Ingrese el codigo del disco: ");
-            int codigoD = teclado.nextInt();
-            System.out.println("Ingrese el nombre del disco: ");
-            String nombreD = teclado.next();
-            System.out.println("Ingrese el año de lanzamiento del disco: ");
-            int anioDeLanzamiento = teclado.nextInt();
-            return new Disco(codigoD, nombreD, anioDeLanzamiento);
-    }
+    public Disco ingresarDisco() {
 
-    public Disco actualizarDisco() {
-        System.out.println("Ingrese el codigo de Disco a actulizar: ");
-        int codigoD = teclado.nextInt();
         System.out.println("INGRESO DE DISCO ");
+        System.out.println("Ingrese el codigo del disco: ");
+        int codigoD = teclado.nextInt();
         System.out.println("Ingrese el nombre del disco: ");
         String nombreD = teclado.next();
         System.out.println("Ingrese el año de lanzamiento del disco: ");
         int anioDeLanzamiento = teclado.nextInt();
-        
+        return new Disco(codigoD, nombreD, anioDeLanzamiento);
+
+    }
+
+    public Disco actualizarDisco() {
+        System.out.println("ACTUALIZACION DE DISCO ");
+        System.out.println("Ingrese el codigo de Disco a actulizar: ");
+        int codigoD = teclado.nextInt();
+
+        System.out.println("Ingrese el nombre del disco: ");
+        String nombreD = teclado.next();
+        System.out.println("Ingrese el año de lanzamiento del disco: ");
+        int anioDeLanzamiento = teclado.nextInt();
+
         return new Disco(codigoD, nombreD, anioDeLanzamiento);
     }
-    
 
     public Disco eliminarDisco() {
         System.out.println("Ingrese el id del disco a eliminar: ");
@@ -59,8 +61,8 @@ public class VistaDisco {
     public void verDisco(Disco disco) {
         System.out.println("Datos del disco: " + disco);
     }
-    
-    public void verDiscografia(List<Disco> listaDisco){
+
+    public void verDiscografia(List<Disco> listaDisco) {
         for (Disco disco : listaDisco) {
             System.out.println(disco);
         }

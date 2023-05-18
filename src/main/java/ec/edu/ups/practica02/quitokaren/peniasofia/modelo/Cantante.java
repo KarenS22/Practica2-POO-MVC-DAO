@@ -57,6 +57,7 @@ public class Cantante extends Persona{
         discografia.add(disco);
     }
     
+    
     //metod que actualiza datos de del disco
     public void actualizarDisco(Disco disco){
         if (discografia.contains(disco) ){

@@ -2,7 +2,6 @@
 package ec.edu.ups.practica02.quitokaren.peniasofia.vista;
 
 import ec.edu.ups.practica02.quitokaren.peniasofia.modelo.Compositor;
-import ec.edu.ups.practica02.quitokaren.peniasofia.modelo.Persona;
 import java.util.List;
 
 import java.util.Scanner;
@@ -42,9 +41,6 @@ public class VistaCompositor {
         System.out.println("Ingrese el codigo del cliente a actualizar: ");
         int codigo = teclado.nextInt();
         System.out.println("ACTUALIZACION DEL COMPOSITOR");
-        //ingreso de datos con scanner
-        System.out.println("Ingrese el codigo del compositor: ");
-        int codigoC = teclado.nextInt();
         System.out.println("Ingrese el nombre del compositor: ");
         String nombreC = teclado.next();
         System.out.println("Ingrese el apellido del compositor: ");

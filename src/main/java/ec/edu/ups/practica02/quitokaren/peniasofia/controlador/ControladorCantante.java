@@ -31,6 +31,7 @@ public class ControladorCantante {
         cantante = vistaCantante.ingresarCantante();
         disco = vistaDisco.ingresarDisco();
         cantante.agregarDisco(disco);
+        cantante.calcularSalario();
         cantanteDAO.create(cantante);
     }
     
@@ -42,11 +43,16 @@ public class ControladorCantante {
     
     public void actualizarCantante(){
         cantante = vistaCantante.actualizarCantante();
+        disco = vistaDisco.actualizarDisco();
+        cantante.actualizarDisco(disco);
+        cantante.calcularSalario();
         cantanteDAO.update(cantante);
     }
     
     public void eliminarCantante(){
         cantante = vistaCantante.eliminarCantante();
+        disco = vistaDisco.eliminarDisco();
+        cantante.eliminarDisco(disco);
         cantanteDAO.delete(cantante);
     }
     
