@@ -51,12 +51,12 @@ public class Cantante extends Persona{
         return super.getSalario();
     }
     
-    /* metod agregarDisco se colocan 3 parametros para crear un nuevo objeto tipo 
-    Disco que luego sera añadido a la lista discografia */
-    public void agregarDisco(int codigo, String nombre, int anioDeLazamiento){
-        Disco disco = new Disco(codigo, nombre, anioDeLazamiento);
+    /* metod agregarDisco se ingresa objeto tipo disco 
+    que  sera añadido a la lista discografia */
+    public void agregarDisco(Disco disco){
         discografia.add(disco);
     }
+    
     //metod que actualiza datos de del disco
     public void actualizarDisco(Disco disco){
         if (discografia.contains(disco) ){

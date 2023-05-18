@@ -1,19 +1,22 @@
-
 package ec.edu.ups.practica02.quitokaren.peniasofia.vista;
 
 import ec.edu.ups.practica02.quitokaren.peniasofia.modelo.Cantante;
+import ec.edu.ups.practica02.quitokaren.peniasofia.modelo.Disco;
 import ec.edu.ups.practica02.quitokaren.peniasofia.modelo.Persona;
 import java.util.List;
 import java.util.Scanner;
 
 public class VistaCantante {
 //atributo
+
     private Scanner teclado;
 //constructor
+
     public VistaCantante() {
         teclado = new Scanner(System.in);
     }
 //ingreso por teclado de los datos para los diferentes metodos
+
     public Cantante ingresarCantante() {
         teclado = new Scanner(System.in);
         System.out.println("INGRESO DE CANTANTE");
@@ -40,24 +43,7 @@ public class VistaCantante {
         int numeroDeConciertos = teclado.nextInt();
         System.out.println("Ingrese el numero de giras del cantante: ");
         int numeroDeGiras = teclado.nextInt();
-        Persona cantante = new Cantante(nombreArtistico, generoMusical, numeroDeSencillos, numeroDeConciertos, numeroDeGiras, codigo, nombre, apellido, edad, nacionalidad, salario);
-        System.out.println("Ingrese la cantidad de discos del cantante: ");
-        int nD = teclado.nextInt();
-        for (int i = 0; i < nD; i++) {
-            System.out.println("INGRESO DE DISCO ");
-            System.out.println("Ingrese el codigo del disco: ");
-            int codigoD = teclado.nextInt();
-            System.out.println("Ingrese el nombre del disco: ");
-            String nombreD = teclado.next();
-            System.out.println("Ingrese el año de lanzamiento del disco: ");
-            int anioDeLanzamiento = teclado.nextInt();
-            //casting para aplicar el metodo agregarDisco
-            Cantante cantanteC = (Cantante) cantante;
-            cantanteC.agregarDisco(codigoD, nombreD, anioDeLanzamiento);
-        }
-        //metodo para calcular salario final
-        cantante.calcularSalario();
-        return (Cantante) cantante;
+        return new Cantante(nombreArtistico, generoMusical, numeroDeSencillos, numeroDeConciertos, numeroDeGiras, codigo, nombre, apellido, edad, nacionalidad, salario);
     }
 
     public Cantante actualizarCantante() {
@@ -119,9 +105,10 @@ public class VistaCantante {
         String valor = teclado.next();
         return valor;
     }
-    
-    public void verNombreyApellido(Cantante cantante){
+
+    public void verNombreyApellido(Cantante cantante) {
         System.out.println("Canatante: " + cantante.getNombre() + " " + cantante.getApellido());
     }
+
 
 }

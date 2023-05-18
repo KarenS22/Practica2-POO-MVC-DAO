@@ -3,26 +3,34 @@ package ec.edu.ups.practica02.quitokaren.peniasofia.controlador;
 
 import ec.edu.ups.practica02.quitokaren.peniasofia.idao.ICantanteDAO;
 import ec.edu.ups.practica02.quitokaren.peniasofia.modelo.Cantante;
+import ec.edu.ups.practica02.quitokaren.peniasofia.modelo.Disco;
 import ec.edu.ups.practica02.quitokaren.peniasofia.vista.VistaCantante;
+import ec.edu.ups.practica02.quitokaren.peniasofia.vista.VistaDisco;
 import java.util.List;
 
 
 public class ControladorCantante {
     //atributos
     private VistaCantante vistaCantante;
+    private VistaDisco vistaDisco;
     
     private Cantante cantante;
+    private Disco disco;
     
     private ICantanteDAO cantanteDAO;
 
 
-    public ControladorCantante(VistaCantante vistaCantante, ICantanteDAO cantanteDAO) {
+    public ControladorCantante(VistaCantante vistaCantante, VistaDisco vistaDisco, ICantanteDAO cantanteDAO) {
         this.vistaCantante = vistaCantante;
+        this.vistaDisco = vistaDisco;
         this.cantanteDAO = cantanteDAO;
     }
+    
 
     public void registrar(){
         cantante = vistaCantante.ingresarCantante();
+        disco = vistaDisco.ingresarDisco();
+        cantante.agregarDisco(disco);
         cantanteDAO.create(cantante);
     }
     

@@ -9,6 +9,11 @@ public class Disco {
 //constructor vacio
     public Disco() {
     }
+
+    public Disco(int codigo) {
+        this.codigo = codigo;
+    }
+    
 //constructor con todos los parametros
     public Disco(int codigo, String nombre, int anioDeLazamiento) {
         this.codigo = codigo;

@@ -32,29 +32,9 @@ public class VistaCompositor {
         double salarioC = teclado.nextDouble();
         System.out.println("Ingrese el numero de composiciones del compositor: ");
         int numeroDeComposiciones = teclado.nextInt();
-        //instanciar compositor
-        Persona compositor = new Compositor(numeroDeComposiciones, codigoC, nombreC, 
-                apellidoC, edadC, nacionalidadC, salarioC);
-        System.out.println("Ingrese el numero de canciones en el Top 100 Billboard del compositor: ");
-        int nC = teclado.nextInt();
+        return new Compositor(numeroDeComposiciones, codigoC, nombreC, apellidoC, edadC, nacionalidadC, salarioC);
 
-        for (int i = 0; i < nC; i++) {
-            System.out.println("INGRESO DE CANCION");
-            System.out.println("Ingrese el codigo de la cancion: ");
-            int codigoCa = teclado.nextInt();
-            System.out.println("Ingrese el titulo de la cancion: ");
-            String titulo = teclado.next();
-            System.out.println("Ingrese la letra de la cancion: ");
-            String letra = teclado.next();
-            System.out.println("Ingrese el tiempo en minutos de la cancion: ");
-            double tiempoEnMinutos = teclado.nextDouble();
-            //casting para usar metodo agregarCancion
-            Compositor compositorC = (Compositor) compositor;
-            compositorC.agregarCancion(codigoCa, titulo, letra, tiempoEnMinutos);
-        }
-        // calculo del salario final 
-        compositor.calcularSalario();
-        return (Compositor) compositor;
+                    
     }
 
     public Compositor actualizarCompositor() {
@@ -115,5 +95,7 @@ public class VistaCompositor {
     public void verNombreyApellido(Compositor compositor){
         System.out.println("Canatante: " + compositor.getNombre() + " " + compositor.getApellido());
     }
+    
+    
 
 }

@@ -5,17 +5,22 @@ package ec.edu.ups.practica02.quitokaren.peniasofia.controlador;
 import ec.edu.ups.practica02.quitokaren.peniasofia.idao.ICantanteDAO;
 import ec.edu.ups.practica02.quitokaren.peniasofia.vista.VistaCompositor;
 import ec.edu.ups.practica02.quitokaren.peniasofia.idao.ICompositorDAO;
+import ec.edu.ups.practica02.quitokaren.peniasofia.modelo.Cancion;
 import ec.edu.ups.practica02.quitokaren.peniasofia.modelo.Cantante;
 import ec.edu.ups.practica02.quitokaren.peniasofia.modelo.Compositor;
+import ec.edu.ups.practica02.quitokaren.peniasofia.vista.VistaCancion;
 import ec.edu.ups.practica02.quitokaren.peniasofia.vista.VistaCantante;
+
 import java.util.List;
 
 public class ControladorCompositor {
     private VistaCompositor vistaCompositor;
     private VistaCantante vistaCantante;
+    private VistaCancion vistaCancion;
     
     private Compositor compositor;
     private Cantante cantante;
+    private Cancion cancion;
     
     private ICompositorDAO compositorDAO;
     private ICantanteDAO cantanteDAO;
@@ -31,7 +36,9 @@ public class ControladorCompositor {
 
     public void registrar(){
         compositor = vistaCompositor.ingresarCompositor();
+        
         compositorDAO.create(compositor); 
+        
     }
     
     public void verCompositor(){
@@ -64,6 +71,8 @@ public class ControladorCompositor {
         compositor.agregarCliente(cantante);
         compositorDAO.update(compositor);
     }
+    
+    
     
     public void buscarPorTituloDeCancion(){
         String valor = vistaCompositor.buscarCancion();
